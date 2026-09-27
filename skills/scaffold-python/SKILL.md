@@ -1,6 +1,6 @@
 ---
 name: scaffold-python
-description: Bootstraps Python repositories with standard uv Makefile, .gitignore, and pyproject.toml tooling whenever the user asks to initialize, bootstrap, or scaffold a project.
+description: Bootstraps Python repositories with standard uv Makefile, .gitignore, pyproject.toml tooling, and AGENTS.md conventions whenever the user asks to initialize, bootstrap, or scaffold a project.
 ---
 
 # Python Project Scaffold Skill
@@ -16,7 +16,10 @@ Use this skill when the user asks to "scaffold", "bootstrap", "init", or set up 
 2. **Gitignore**:
    If `<repo_root>/.gitignore` does not exist or lacks Python defaults, copy or merge `<skill_dir>/templates/gitignore` into `<repo_root>/.gitignore`.
 
-3. **Project Config (`pyproject.toml`)**:
+3. **Agent Conventions (`AGENTS.md`)**:
+   If `<repo_root>/AGENTS.md` does not exist, copy `<skill_dir>/templates/AGENTS.md` to `<repo_root>/AGENTS.md`.
+
+4. **Project Config (`pyproject.toml`)**:
    If `<repo_root>/pyproject.toml` does not exist, initialize a standard package with:
    ```bash
    uv init --lib
@@ -26,5 +29,5 @@ Use this skill when the user asks to "scaffold", "bootstrap", "init", or set up 
    uv add --dev ruff mypy pytest
    ```
 
-4. **Verify**:
+5. **Verify**:
    Run `make sync` and `make check` to ensure the environment is ready.
